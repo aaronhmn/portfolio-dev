@@ -1,8 +1,9 @@
 ---
-/* import './src/styles/global.css'; */
+import './src/styles/global.css';
 import Carrusel from "../components/Carrusel.astro";
 import Header from "../components/Header.astro"
 import '@fontsource-variable/space-grotesk';
+import Proyectos from "../components/Proyectos.astro";
 ---
 
 <!doctype html>
@@ -19,6 +20,7 @@ import '@fontsource-variable/space-grotesk';
 		<Header />
 		<slot />
 		<Carrusel />
+		 <Proyectos />
 	</body>
 </html>
 
@@ -49,7 +51,7 @@ import '@fontsource-variable/space-grotesk';
 		cursor: pointer;
 	}
 
-	.slider {
+/* 	.slider {
 		width: 70vw;
 		height: auto;
 		margin: auto;
@@ -81,5 +83,5 @@ import '@fontsource-variable/space-grotesk';
 			transform: translateX(calc(-125px * 12));
 		}
 	}
-
+ */
 </style>
