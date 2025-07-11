@@ -80,33 +80,42 @@ import Layout from '../layouts/Layout.astro';
     const btn = document.getElementById('copy-button');
     const copyIcon = document.getElementById('copy-icon');
     const checkIcon = document.getElementById('check-icon');
+    const tooltip = document.getElementById('tooltip');
+    const badge = document.querySelector('.hover-trigger');
 
     btn?.addEventListener('click', () => {
       const email = document.getElementById('email')?.textContent;
       if (!email) return;
 
+      // Copiar al portapapeles
       navigator.clipboard.writeText(email)
         .then(() => {
+          // Cambiar iconos
           copyIcon?.classList.add('opacity-0');
           checkIcon?.classList.remove('opacity-0');
 
+          // Cambiar tooltip
+          tooltip!.textContent = '¡Copiado!';
+          badge?.classList.add('text-[#ff6622]', 'border-[#ff6622]');
+
+          // Revertir después de 3 segundos
           setTimeout(() => {
             checkIcon?.classList.add('opacity-0');
             copyIcon?.classList.remove('opacity-0');
+            tooltip!.textContent = 'Copiar al portapapeles';
+            badge?.classList.remove('text-[#ff6622]', 'border-[#ff6622]');
           }, 3000);
         });
     });
+
+    // Hover efecto visual en el badge
+    btn?.addEventListener('mouseenter', () => {
+      badge?.classList.add('text-[#ff6622]', 'border-[#ff6622]');
+    });
+
+    btn?.addEventListener('mouseleave', () => {
+      badge?.classList.remove('text-[#ff6622]', 'border-[#ff6622]');
+    });
   });
-
-  const badge = document.querySelector('.hover-trigger');
-    const button = document.querySelector('#copy-button');
-
-    button!.addEventListener('mouseenter', () => {
-        badge!.classList.add('text-[#ff6622]', 'border-[#ff6622]');
-    });
-
-    button!.addEventListener('mouseleave', () => {
-        badge!.classList.remove('text-[#ff6622]', 'border-[#ff6622]');
-    });
 </script>
 
