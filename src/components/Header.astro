@@ -1,8 +1,8 @@
 <header data-nav 
-class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex justify-center items-center px-5 py-3 mt-6 w-auto border-[3px] rounded-full border-[#c9e8ff] hover:border-[#ff6622] border-opacity-70 transition-[background-color,height] duration-200 ">
+class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex justify-center items-center px-5 py-3 mt-6 w-auto border-[3px] rounded-full border-[#c9e8ff] hover:border-[#ff6622] border-opacity-70 transition-all duration-200 ease-in-out">
     <nav data-nav-inner class="flex justify-center items-center flex-row gap-x-16 opacity-90 font-bold">
         <a class="hover:text-[#ff6622] transition-colors duration-200 hidden sm:flex" href="/">
-            Inicio
+            Sobre mí
         </a>
         <a class="hover:text-[#ff6622] transition-colors duration-200 hidden sm:flex" href="#proyectos">
             Proyectos
@@ -43,6 +43,7 @@ class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex justify-center items-cent
         const apply = (on) => {
         header.classList.toggle('bg-transparent', !on);
         header.classList.toggle('bg-[#0b0f1a]', on);
+        header.classList.toggle('border-opacity-70', !on);
         };
         const onScroll = () => apply(window.scrollY > THRESHOLD);
         onScroll();
