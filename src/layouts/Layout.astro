@@ -20,7 +20,30 @@ import Proyectos from "../components/Proyectos.astro";
 		<Header />
 		<slot />
 		<Carrusel />
-		 <Proyectos />
+		<h1 class="flex justify-center items-center text-5xl md:text-[2.7rem] font-bold text-[#c9e8ff] mb-16 md:mb-20 mt-16 md:mt-24">Mis proyectos</h1>
+		<section class="max-w-7xl mx-auto px-4">
+			<div class="grid gap-24 md:grid-cols-2 items-stretch">
+				<!-- Card 1 -->
+				<Proyectos 
+					title="Genesis"
+					description="Tienda online de productos tecnológicos con pagos mediante paypal y sistema de facturación además de un back office. Proyecto final del grado superior de DAW."
+					image="/public/projects/visual-genesis-shop.png"
+					tech={["php","html","css","js","mysql","bootstrap"]}
+					githubUrl="https://github.com/aaronhmn/TFG"
+					iconClass="w-7 h-7"
+				/>
+				<!-- Card 2 -->
+				<Proyectos 
+					title="Knowy"
+					description="Plataforma de aprendizaje online para cursos de programación siguiendo la metodología de repetición espaciada. Proyecto realizado en el curso de java de la EOI."
+					image="/public/projects/visual-knowy.png"
+					tech={["java","spring", "thymeleaf", "postgres", "html", "sass", "bootstrap", "docker"]}
+					githubUrl="https://github.com/aaronhmn/TFG"
+					iconClass="w-7 h-7"
+				/>
+			</div>
+		</section>
+		 
 	</body>
 </html>
 
@@ -37,13 +60,6 @@ import Proyectos from "../components/Proyectos.astro";
 
 	html {
 		font-family: 'Space Grotesk Variable', system-ui, sans-serif;
-	}
-
-	body {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 	}
 
 	.img-perfil {
