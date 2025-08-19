@@ -43,7 +43,7 @@ class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex justify-center items-cent
         const apply = (on) => {
         header.classList.toggle('bg-transparent', !on);
         header.classList.toggle('bg-[#0b0f1a]', on);
-        header.classList.toggle('border-opacity-70', !on);
+        header.classList.toggle('border-opacity-85', on);
         };
         const onScroll = () => apply(window.scrollY > THRESHOLD);
         onScroll();

@@ -1,42 +1,146 @@
-<!-- <article class="mt-9">
-     <div class="slider">
-        <div class="slide-track flex">
-            <div class="slide">
-                <img class="w-32" src="logos/brand-html5.svg" alt="Logo de html">
+---
+import {
+  siHtml5, siCss, siSass, siBootstrap, siTailwindcss,
+  siJavascript, siTypescript, siAngular, siFigma,
+  siMysql, siPostgresql, siPhp, siOpenjdk,
+  siSpring, siSpringboot, siDocker, siGit, siGithub
+} from "simple-icons";
+
+const FRONTEND = [
+  siHtml5, siCss, siSass, siBootstrap, siTailwindcss,
+  siJavascript, siTypescript, siAngular, siFigma,
+];
+
+const BACKEND = [
+  siMysql, siPostgresql, siPhp, siOpenjdk,
+  siSpring, siSpringboot, siDocker, siGit, siGithub,
+];
+
+// tamaño y color de los iconos (sin hover)
+const ICON_SIZE  = "w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20";
+const ICON_COLOR = "text-[#c9e8ff]/90";
+---
+
+<section class="py-8">
+  <div class="relative max-w-7xl mx-auto px-6">
+    <!-- Expositor con el MISMO glass que tus cards -->
+    <div
+      class="relative rounded-3xl border-[2px] backdrop-blur-2xl overflow-hidden
+             border-[#c9e8ff]/40 bg-[#c9e8ff]/10
+             shadow-[0_0_0_1px_rgba(201,232,255,0.25),0_10px_30px_rgba(201,232,255,0.08)]"
+      style="background-image:
+        radial-gradient(1000px 200px at -10% -10%, rgba(201,232,255,.18), transparent),
+        radial-gradient(800px 200px at 110% 110%, rgba(201,232,255,.12), transparent);"
+    >
+      <!-- Glows decorativos (como en tus cards) -->
+      <div class="pointer-events-none absolute -top-24 -left-24 h-64 w-64 rounded-full bg-[#c9e8ff]/15 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-[#c9e8ff]/10 blur-3xl"></div>
+
+      <!-- Padding interior para que no peguen los iconos a los bordes -->
+      <div class="px-6 py-10">
+        <!-- Máscara interna: fade dentro, el borde glass queda perfecto -->
+        <div
+          class="relative overflow-hidden
+                 [mask-image:linear-gradient(to_right,transparent,black_80px,black_calc(100%-80px),transparent)]
+                 [-webkit-mask-image:linear-gradient(to_right,transparent,black_80px,black_calc(100%-80px),transparent)]
+                 sm:[mask-image:linear-gradient(to_right,transparent,black_112px,black_calc(100%-112px),transparent)]
+                 sm:[-webkit-mask-image:linear-gradient(to_right,transparent,black_112px,black_calc(100%-112px),transparent)]"
+        >
+          <div class="space-y-32">
+            <!-- Fila FRONTEND (→ izquierda) -->
+            <div class="overflow-hidden" data-marquee data-direction="left" data-speed="50">
+              <div data-track class="flex items-center will-change-transform">
+                <!-- pr-* = gap-* para que principio y final no se “peguen” -->
+                <ul data-segment class="flex items-center gap-14 sm:gap-x-16 pr-14 sm:pr-16">
+                  {FRONTEND.map((i) => (
+                    <li class="shrink-0">
+                      <svg viewBox="0 0 24 24" class={`${ICON_SIZE} ${ICON_COLOR}`} aria-hidden>
+                        <path d={i.path} fill="currentColor" />
+                      </svg>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div class="slide">
-                <img class="w-32" src="logos/brand-css3.svg" alt="Logo de css">
+
+            <!-- Fila BACKEND (→ derecha) -->
+            <div class="overflow-hidden" data-marquee data-direction="right" data-speed="50">
+              <div data-track class="flex items-center will-change-transform">
+                <ul data-segment class="flex items-center gap-14 sm:gap-x-16 pr-14 sm:pr-16">
+                  {BACKEND.map((i) => (
+                    <li class="shrink-0">
+                      <svg viewBox="0 0 24 24" class={`${ICON_SIZE} ${ICON_COLOR}`} aria-hidden>
+                        <path d={i.path} fill="currentColor" />
+                      </svg>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div class="slide">
-                <img class="w-32" src="logos/brand-javascript.svg" alt="Logo de javascript">
-            </div>
-            <div class="slide">
-                <img class="w-32" src="logos/brand-typescript.svg" alt="Logo typescript">
-            </div>
-            <div class="slide">
-                <img class="w-32" src="logos/brand-sass.svg" alt="Logo de sass">
-            </div>
-            <div class="slide">
-                <img class="w-32" src="logos/brand-bootstrap.svg" alt="Logo de bootstrap">
-            </div>
-            <div class="slide">
-                <img class="w-32" src="logos/brand-tailwind.svg" alt="Logo de tailwind">
-            </div>
-            <div class="slide">
-                <img class="w-32" src="logos/brand-astro.svg" alt="Logo de astro">
-            </div>
-            <div class="slide">
-                <img class="w-32" src="logos/brand-angular.svg" alt="Logo de angular">
-            </div>
-            <div class="slide">
-                <img class="w-32" src="logos/brand-git.svg" alt="Logo de git">
-            </div>
-            <div class="slide">
-                <img class="w-32" src="logos/brand-mysql.svg" alt="Logo de mysql">
-            </div>
-            <div class="slide">
-                <img class="w-32" src="logos/brand-php.svg" alt="Logo de php">
-            </div>
-        </div>
-     </div>
-</article> -->
+          </div> <!-- /space-y-32 -->
+        </div>   <!-- /mask wrapper -->
+      </div>     <!-- /px-6 py-10 -->
+    </div>       <!-- /glass -->
+  </div>
+
+  <script is:inline>
+    // Marquee infinito sin huecos, sin hover/pausas
+    document.addEventListener('DOMContentLoaded', () => {
+      function setupMarquee(m) {
+        const track = m.querySelector('[data-track]');
+        const baseSeg = m.querySelector('[data-segment]');
+        const toRight = m.dataset.direction === 'right';
+        const speed = Number(m.dataset.speed || 70); // px/s
+        let anim = null;
+
+        const build = () => {
+          track.innerHTML = '';
+          const seg = baseSeg.cloneNode(true);
+          track.appendChild(seg);
+
+          // Espera un frame para medir correctamente
+          requestAnimationFrame(() => {
+            const vw = m.clientWidth;
+            const sw = seg.scrollWidth;
+
+            // Repite el bloque hasta cubrir viewport + 1 bloque (sin huecos)
+            let total = sw;
+            while (total < vw + sw) {
+              const clone = seg.cloneNode(true);
+              clone.setAttribute('aria-hidden', 'true');
+              track.appendChild(clone);
+              total += sw;
+            }
+
+            if (anim) anim.cancel();
+
+            const distance = sw;
+            const duration = (distance / speed) * 1000; // ms
+
+            track.style.transform = toRight
+              ? `translateX(${-distance}px)`
+              : `translateX(0)`;
+
+            anim = track.animate(
+              toRight
+                ? [{ transform: `translateX(${-distance}px)` }, { transform: `translateX(0)` }]
+                : [{ transform: `translateX(0)` }, { transform: `translateX(${-distance}px)` }],
+              { duration, easing: 'linear', iterations: Infinity }
+            );
+          });
+        };
+
+        build();
+
+        // Recalcular al redimensionar
+        let t;
+        window.addEventListener('resize', () => {
+          clearTimeout(t);
+          t = setTimeout(build, 150);
+        });
+      }
+
+      document.querySelectorAll('[data-marquee]').forEach(setupMarquee);
+    });
+  </script>
+</section>
