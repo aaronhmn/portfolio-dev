@@ -1,14 +1,20 @@
 <header data-nav 
-class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex justify-center items-center px-5 py-3 mt-6 w-auto border-[3px] rounded-full border-[#c9e8ff] hover:border-[#ff6622] border-opacity-70 transition-all duration-200 ease-in-out">
-    <nav data-nav-inner class="flex justify-center items-center flex-row gap-x-16 opacity-90 font-bold">
-        <a class="hover:text-[#ff6622] transition-colors duration-200 hidden sm:flex" href="/">
+class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex justify-center items-center px-5 py-3 mt-6 w-auto border-[3px] rounded-full border-[#c9e8ff] hover:border-[#ff6622] border-opacity-90 transition-all duration-200 ease-in-out">
+    <nav data-nav-inner class="flex justify-center items-center flex-row gap-x-16 font-bold">
+        <a class="hover:text-[#ff6622] nav-link transition-colors duration-200 hidden sm:flex" href="#sobre-mi" id="nav-sobre-mi">
             Sobre mí
         </a>
-        <a class="hover:text-[#ff6622] transition-colors duration-200 hidden sm:flex" href="#proyectos">
+        <a class="hover:text-[#ff6622] nav-link transition-colors duration-200 hidden sm:flex" href="#tecnologias" id="nav-tecnologias">
+            Tecnologías
+        </a>
+        <a class="hover:text-[#ff6622 nav-link transition-colors duration-200 hidden sm:flex" href="#proyectos" id="nav-proyectos">
             Proyectos
         </a>
-        <a class="hover:text-[#ff6622] transition-colors duration-200 hidden sm:flex" href="#experiencia">
+        <a class="hover:text-[#ff6622] nav-link transition-colors duration-200 hidden sm:flex" href="#experiencia" id="nav-experiencia">
             Experiencia
+        </a>
+        <a class="hover:text-[#ff6622] nav-link transition-colors duration-200 hidden sm:flex" href="#contacto" id="nav-contacto">
+            Contacto
         </a>
 
         <!-- Iconos para móvil -->
@@ -32,22 +38,53 @@ class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex justify-center items-cent
         </a>
     </nav>
 
-  <script is:inline>
-    // @ts-check
-    /** @type {HTMLElement|null} */
-    const header = document.querySelector('header[data-nav]');
+   <script is:inline>
+  // @ts-check
+  const header = document.querySelector('header[data-nav]');
+  if (header) {
+      const THRESHOLD = 60;
+      /**
+       * @param {boolean} on
+       */
+      const apply = (on) => {
+          header.classList.toggle('bg-transparent', !on);
+          header.classList.toggle('bg-[#0b0f1a]', on);
+          header.classList.toggle('border-opacity-85', on);
+      };
+      const onScroll = () => apply(window.scrollY > THRESHOLD);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+  }
 
-    if (header) {
-        const THRESHOLD = 60; // px de scroll para activar
-        /** @param {boolean} on */
-        const apply = (on) => {
-        header.classList.toggle('bg-transparent', !on);
-        header.classList.toggle('bg-[#0b0f1a]', on);
-        header.classList.toggle('border-opacity-85', on);
-        };
-        const onScroll = () => apply(window.scrollY > THRESHOLD);
-        onScroll();
-        window.addEventListener('scroll', onScroll, { passive: true });
-    }
-  </script>
+  // Active nav link
+  const sections = [
+    { id: 'sobre-mi', nav: 'nav-sobre-mi' },
+    { id: 'tecnologias', nav: 'nav-tecnologias' },
+    { id: 'proyectos', nav: 'nav-proyectos' },
+    { id: 'experiencia', nav: 'nav-experiencia' },
+    { id: 'contacto', nav: 'nav-contacto' }
+  ];
+
+  function setActiveNav() {
+    let activeIdx = 0;
+    sections.forEach((section, idx) => {
+      const el = document.getElementById(section.id);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom > 120) {
+          activeIdx = idx;
+        }
+      }
+    });
+    sections.forEach((section, idx) => {
+      const link = document.getElementById(section.nav);
+      if (link) {
+        link.classList.toggle('text-[#ff6622]', idx === activeIdx);
+        link.classList.toggle('text-[#c9e8ff]', idx !== activeIdx);
+      }
+    });
+  }
+  window.addEventListener('scroll', setActiveNav, { passive: true });
+  window.addEventListener('DOMContentLoaded', setActiveNav);
+</script>
 </header>

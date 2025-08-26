@@ -3,10 +3,11 @@ import './src/styles/global.css';
 import Carrusel from "../components/Carrusel.astro";
 import Header from "../components/Header.astro"
 import '@fontsource-variable/space-grotesk';
-import Proyectos from "../components/Proyectos.astro";
+import Proyecto from "../components/Proyecto.astro";
 import Experience from '../components/Experience.astro';
 import Arrow from '../components/Arrow.astro';
 import Contact from '../components/Contact.astro';
+import Proyectos from '../components/Proyectos.astro';
 ---
 
 <!doctype html>
@@ -22,37 +23,11 @@ import Contact from '../components/Contact.astro';
 		<div class="fixed top-0 z-[-2] h-full w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
 		<Header />
 		<slot />
-		<h1 class="flex justify-center items-center text-5xl text-center md:text-[2.7rem] font-bold text-[#ff6622] mt-32 mb-4 md:mb-8">Expositor de tecnologías</h1>
 		<Carrusel />
-		<h1 class="flex justify-center items-center text-5xl md:text-[2.7rem] font-bold text-[#ff6622] mb-16 md:mb-20 mt-16 md:mt-[22rem]">Mis proyectos</h1>
-		<section class="max-w-7xl mx-auto px-4 my-6">
-			<div class="grid gap-24 md:grid-cols-2 items-stretch">
-				<!-- Card 1 -->
-				<Proyectos 
-					title="Genesis"
-					description="Tienda online de productos tecnológicos con pagos mediante paypal y sistema de facturación además de un back office."
-					image="/public/projects/visual-genesis-landing.png"
-					tech={["PHP","JavaScript","HTML","CSS","Sass","MySQL","Bootstrap"]}
-					githubUrl="https://github.com/aaronhmn/TFG"
-					iconClass="w-7 h-7"
-				/>
-				<!-- Card 2 -->
-				<Proyectos 
-					title="Knowy"
-					description="Plataforma de aprendizaje online para cursos de programación siguiendo la metodología de repetición espaciada."
-					image="/public/projects/visual-knowy.png"
-					tech={["Java","Spring","JavaScript","HTML","Sass","Bootstrap","PostgreSQL","Docker"]}
-					githubUrl="https://github.com/aaronhmn/TFG"
-					iconClass="w-7 h-7"
-				/>
-			</div>
-		</section>
-
+		<Proyectos />
 		<Experience />
 		<Contact />
-
 		<Arrow
-		 
 	</body>
 </html>
 
@@ -69,6 +44,7 @@ import Contact from '../components/Contact.astro';
 
 	html {
 		font-family: 'Space Grotesk Variable', system-ui, sans-serif;
+		scroll-behavior: smooth;
 	}
 
 	.img-perfil {
