@@ -23,7 +23,7 @@ import Layout from '../layouts/Layout.astro';
                 <span class="mt-12 flex justify-center sm:justify-normal items-center gap-5">
                     <Badge client:load class="hover-trigger">
                         <span id="email">aaronhelices@gmail.com</span>
-                        <Tooltip text="Copiar al portapapeles">
+                        <Tooltip text="¡Copiar!">
                             <button id="copy-button" class="relative flex items-center justify-center w-9 h-9">
                             <!-- Icono copiar -->
                             <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36"
@@ -108,7 +108,7 @@ import Layout from '../layouts/Layout.astro';
           setTimeout(() => {
             checkIcon?.classList.add('opacity-0');
             copyIcon?.classList.remove('opacity-0');
-            if(tooltip) tooltip.textContent = 'Copiar al portapapeles';
+            if(tooltip) tooltip.textContent = '¡Copiar!';
             badge?.classList.remove('text-[#ff6622]', 'border-[#ff6622]');
           }, 3000);
         });

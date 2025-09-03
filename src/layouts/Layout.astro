@@ -19,7 +19,9 @@ import Arrow from '../components/Arrow.astro';
 		<title>Portfolio web | aaronhelices</title>
 	</head>
 	<body>
-		<div class="fixed top-0 z-[-2] h-full w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+		<div class="fixed inset-0 -z-10 bg-neutral-950
+            bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
+		</div>
 		<Header />
 		<slot />
 		<Carrusel />
@@ -40,6 +42,8 @@ import Arrow from '../components/Arrow.astro';
 		margin: 0;
 		padding: 0;
 	}
+
+	html, body { overflow-x: hidden; }
 
 	html {
 		font-family: 'Space Grotesk Variable', system-ui, sans-serif;
