@@ -1,5 +1,5 @@
 ---
-import './src/styles/global.css';
+import '../styles/global.css';
 import '@fontsource-variable/space-grotesk';
 import Header from "../components/Header.astro"
 import Carrusel from "../components/Carrusel.astro";
@@ -26,7 +26,7 @@ import Arrow from '../components/Arrow.astro';
 		<Proyectos />
 		<Experience />
 		<Contact />
-		<Arrow
+		<Arrow />
 	</body>
 </html>
 
@@ -51,37 +51,4 @@ import Arrow from '../components/Arrow.astro';
 		cursor: pointer;
 	}
 
-/* 	.slider {
-		width: 70vw;
-		height: auto;
-		margin: auto;
-		overflow: hidden;
-	}
-
-	.slider .slide-track {
-		display: flex;
-		animation: scroll 20s linear infinite;
-		-webkit-animation: scroll 20s linear infinite;
-		width: calc(125px * 24);
-	}
-
-	.slider .slide {
-		width: 125px;
-	}
-
-	.slider .slide img {
-		width: 100%;
-	}
-
-	@keyframes scroll {
-		0% {
-			-webkit-transform: translateX(0);
-			transform: translateX(0);
-		}
-		100% {
-			-webkit-transform: translateX(calc(-125px * 12));
-			transform: translateX(calc(-125px * 12));
-		}
-	}
- */
 </style>

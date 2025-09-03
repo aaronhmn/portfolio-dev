@@ -20,7 +20,7 @@ import Layout from '../layouts/Layout.astro';
 
                 <h3 class="text-3xl mt-5 text-center sm:text-left">Construyendo webs con precisión en el <span class="text-[#c9e8ff] font-bold">frontend</span> y solidez en el <span class="text-[#c9e8ff] font-bold">backend</span>.</h3>
 
-                <span class="mt-12 flex justify-center sm:justify-normal items-center">
+                <span class="mt-12 flex justify-center sm:justify-normal items-center gap-5">
                     <Badge client:load class="hover-trigger">
                         <span id="email">aaronhelices@gmail.com</span>
                         <Tooltip text="Copiar al portapapeles">
@@ -61,11 +61,11 @@ import Layout from '../layouts/Layout.astro';
                     <li class="flex items-center">
                         <Tooltip text="Descargar CV">
                             <a href="cv.pdf" target="_blank" class="group flex items-center justify-center border-[3px] border-[#c9e8ff] hover:border-[#ff6622] rounded-xl px-2 py-1 gap-2 text-opacity-85 border-opacity-70 text-[#c9e8ff] hover:text-[#ff6622] font-bold text-xl transition-colors duration-200">
-                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="3"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-download text-opacity-85 text-[#c9e8ff] group-hover:text-[#ff6622] transition-colors duration-200"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /><path d="M7 11l5 5l5 -5" /><path d="M12 4l0 12" /></svg>CV
-                        </a>
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="3"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-download text-opacity-85 text-[#c9e8ff] group-hover:text-[#ff6622] transition-colors duration-200"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /><path d="M7 11l5 5l5 -5" /><path d="M12 4l0 12" /></svg>CV
+                            </a>
                         </Tooltip>
                     </li>
-                </ul>  
+                </ul> 
             </div>  
         
 
@@ -101,14 +101,14 @@ import Layout from '../layouts/Layout.astro';
           checkIcon?.classList.remove('opacity-0');
 
           // Cambiar tooltip
-          tooltip!.textContent = '¡Copiado!';
+          if(tooltip) tooltip.textContent = '¡Copiado!';
           badge?.classList.add('text-[#ff6622]', 'border-[#ff6622]');
 
           // Revertir después de 3 segundos
           setTimeout(() => {
             checkIcon?.classList.add('opacity-0');
             copyIcon?.classList.remove('opacity-0');
-            tooltip!.textContent = 'Copiar al portapapeles';
+            if(tooltip) tooltip.textContent = 'Copiar al portapapeles';
             badge?.classList.remove('text-[#ff6622]', 'border-[#ff6622]');
           }, 3000);
         });
